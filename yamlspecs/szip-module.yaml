@@ -1,0 +1,14 @@
+# Builds the module for szip.
+!include szip.yaml
+!include rcic-module.yaml
+---
+- package: szip module 
+  category: LIBRARIES
+  module:
+    prepend_path:
+      - LD_LIBRARY_PATH {{root}}/{{module.lib}}
+      - *Flagspath
+    prereq:
+      - *ModuleCompiler_prereq
+    requires:
+      - *ModuleCompiler_requires

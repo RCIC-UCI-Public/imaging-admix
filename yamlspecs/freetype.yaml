@@ -1,0 +1,9 @@
+!include common.yaml
+---
+- package: freetype
+  name: freetype 
+  version: "{{versions.freetype}}"
+  vendor_source: https://download.savannah.gnu.org/releases/freetype/{{name}}-{{version}}.{{extension}}
+  description: |
+    FreeType {{version}} is a freely available software 
+    library to render fonts. See https://www.freetype.org

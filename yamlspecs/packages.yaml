@@ -1,0 +1,26 @@
+system:
+  - autoconf
+  - cairo-devel
+  - pixman-devel
+  - libXmu-devel
+  - libXaw-devel
+  - flex-devel
+bootstrap:
+  - zlib
+  - zlib-module
+  - libpng
+  - libpng-module
+  - libjpeg
+  - libjpeg-module
+  - freetype
+  - freetype-module
+  - szip
+  - szip-module
+  - hdf4
+  - hdf4-module
+build:
+  - ncl
+  - ncl-module
+manifest:
+  - "{{bootstrap}}"
+  - "{{build}}"

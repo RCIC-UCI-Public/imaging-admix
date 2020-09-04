@@ -1,0 +1,30 @@
+# Builds the module for ncl.
+!include ncl.yaml
+!include rcic-module.yaml
+---
+- package: ncl module 
+  category: TOOLS
+  module:
+    setenv:
+      - NCARG_ROOT {{root}}
+      - *Setenv
+    prepend_path:
+      - PATH {{root}}/bin
+      - MANPATH {{root}}/share/man
+      - LD_LIBRARY_PATH {{root}}/{{module.lib}}
+      - *Flagspath
+    prereq:
+      - "{{build.modules}}"
+    requires:
+      - *ModuleCompiler_requires
+      - szip_{{versions.szip}}-module
+      - zlib_{{versions.zlib}}-module
+      - libjpeg_{{versions.libjpeg}}-module
+      - libpng_{{versions.libpng}}-module
+      - hdf4_{{versions.hdf4}}-module
+      - netcdf-c_{{versions.netcdf}}_{{compiler}}_{{compiler_version}}-module
+      - freetype_{{versions.freetype}}-module
+      - udunits_{{versions.udunits}}_{{compiler}}_{{compiler_version}}-module
+      - gsl_{{versions.gsl}}_{{compiler}}_{{compiler_version}}-module
+      - foundation-module
+

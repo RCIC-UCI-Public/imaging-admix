@@ -1,0 +1,25 @@
+!include common.yaml
+---
+- package: HDF4
+  name: hdf4 
+  version: "{{versions.hdf4}}"
+  vendor_source: https://support.hdfgroup.org/ftp/HDF/releases/HDF4.2.15/src/hdf-{{version}}.{{extension}}
+  description: |
+    HDF 4 {{version}} is a physical file format for storing scientific data.
+    At its highest level, HDF is a collection of utilities and applications 
+    for manipulating, viewing, and analyzing data in HDF files. Between these
+    levels, HDF is a software library that provides high-level APIs and a 
+    low-level data interface. See https://portal.hdfgroup.org/display/support
+  src_dir: hdf-{{version}}
+  build:
+    configure_args: >
+      --disable-netcdf
+      --prefix={{root}}
+      --with-szlib=$$szip__PREFIX 
+      --with-zlib=$$zlib__PREFIX
+      --with-jpeg=$$libjpeg__PREFIX
+    modules:
+      - "{{compiler}}/{{compiler_version}}"
+      - szip/{{versions.szip}}
+      - zlib/{{versions.zlib}}
+      - libjpeg/{{versions.libjpeg}}

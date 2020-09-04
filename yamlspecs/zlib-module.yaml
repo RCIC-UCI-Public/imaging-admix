@@ -1,0 +1,14 @@
+# Builds the module for zlib.
+!include zlib.yaml
+!include rcic-module.yaml
+---
+- package: zlib module 
+  category: LIBRARIES
+  module:
+    prepend_path:
+      - *Prepend_path
+      - *Flagspath
+    prereq:
+      - *ModuleCompiler_prereq
+    requires:
+      - *ModuleCompiler_requires

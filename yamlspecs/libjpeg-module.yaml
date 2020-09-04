@@ -1,0 +1,16 @@
+# Builds the module for libjpeg.
+!include libjpeg.yaml
+!include rcic-module.yaml
+---
+- package: libjpeg module 
+  category: LIBRARIES
+  module:
+    prepend_path:
+      - *Prepend_path
+      - *Flagspath
+#      - -d " " CPPFLAGS -I{{root}}/include
+#      - -d " " LDFLAGS "-L{{root}}/lib -Wl,-rpath,{{root}}/lib"
+    prereq:
+      - *ModuleCompiler_prereq
+    requires:
+      - *ModuleCompiler_requires

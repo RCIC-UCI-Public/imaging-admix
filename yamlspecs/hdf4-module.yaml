@@ -1,0 +1,22 @@
+# Builds the module for hdf4.
+!include hdf4.yaml
+!include rcic-module.yaml
+---
+- package: hdf4 module 
+  category: LIBRARIES
+  module:
+    prepend_path:
+      - PATH {{root}}/bin
+      - MANPATH {{root}}/share/man
+      - LD_LIBRARY_PATH {{root}}/{{module.lib}}
+      - *Flagspath
+    prereq:
+      - *ModuleCompiler_prereq
+      - szip/{{versions.szip}}
+      - zlib/{{versions.zlib}}
+      - libjpeg/{{versions.libjpeg}}
+    requires:
+      - *ModuleCompiler_requires
+      - szip_{{versions.szip}}-module
+      - zlib_{{versions.zlib}}-module
+      - libjpeg_{{versions.libjpeg}}-module

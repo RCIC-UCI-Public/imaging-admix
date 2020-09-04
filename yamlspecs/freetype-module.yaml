@@ -1,0 +1,18 @@
+# Builds the module for freetype.
+!include freetype.yaml
+!include rcic-module.yaml
+---
+- package: freetype module 
+  category: LIBRARIES
+  module:
+    setenv:
+      - "{{shortname}}__PREFIX {{root}}"
+      - "{{shortname}}__CPPFLAGS -I{{root}}/include/freetype2"
+      - "{{shortname}}__LDFLAGS \"-L{{root}}/{{module.lib}} -Wl,-rpath,{{root}}/{{module.lib}}\""
+    prepend_path:
+      - *Prepend_path
+      - *Flagspath
+    prereq:
+      - *ModuleCompiler_prereq
+    requires:
+      - *ModuleCompiler_requires

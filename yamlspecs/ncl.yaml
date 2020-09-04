@@ -1,0 +1,86 @@
+!include rcic-package.yaml
+!include rpm.yaml
+---
+- package: NCL
+  extension: tar.gz
+  name: ncl 
+  versions: !include versions.yaml
+  version: "{{versions.ncl}}"
+  compiler: gcc
+  compiler_version: "{{versions.gcc}}"
+  vendor_source: https://github.com/NCAR/ncl/archive/{{version}}.{{extension}}
+  description: |
+    NCL {{version}} is developed by the Computational and Information Systems Lab at
+    the National Center for Atmospheric Research (NCAR). See http://www.ncl.ucar.edu
+  configFile: config/Site.local
+  hdflib: -L$$hdf4__PREFIX/lib -lmfhdf -ldf -L$$libjpeg__PREFIX/lib -ljpeg -L$$zlib__PREFIX/lib -lz -L$$szip__PREFIX/lib -lsz
+  netcdf4lib: -L$$hdf5__PREFIX/lib -lhdf5_hl -lhdf5 -L$$szip__PREFIX/lib -lsz
+  hdf5lib: -L$$hdf5__PREFIX/lib -lhdf5_hl -lhdf5 -L$$szip__PREFIX/lib -lsz -L$$zlib__PREFIX/lib -lz
+  udunitslib: -L$$udunits__PREFIX/lib -ludunits2 -lexpat
+  eemdlib: -L$$gsl__PREFIX/lib -lgsl -lgslcblas
+  pnglib: -L$$libpng__PREFIX/lib -lpng -L$$zlib__PREFIX/lib -lz
+  netcdflib: -L$$netcdfc__PREFIX/lib -lnetcdf -L/opt/foundation/lib -lcurl
+  build:
+    configure: "echo No configure"
+    configure_args: ""
+    modules:
+      - "{{compiler}}/{{compiler_version}}"
+      - szip/{{versions.szip}}
+      - zlib/{{versions.zlib}}
+      - libjpeg/{{versions.libjpeg}}
+      - libpng/{{versions.libpng}}
+      - hdf4/{{versions.hdf4}}
+      - netcdf-c/{{versions.netcdf}}/{{compiler}}.{{compiler_version}}
+      - freetype/{{versions.freetype}}
+      - udunits/{{versions.udunits}}/{{compiler}}.{{compiler_version}}
+      - gsl/{{versions.gsl}}/{{compiler}}.{{compiler_version}}
+      - foundation
+    pkgmake: >
+      export EXTRA_INCLUDES=$$CPPFLAGS;
+      export EXTRA_LDFLAGS=$$LDFLAGS;
+      unzip ../../../sources/triangle.zip -d triangle;
+      cp triangle/triangle.* ni/src/lib/hlu;
+      echo "\#ifdef FirstSite" > {{configFile}};
+      echo "\#endif" >> {{configFile}};
+      echo "\#ifdef SecondSite" >> {{configFile}};
+      echo -n "\#define YmakeRoot \$$" >> {{configFile}};
+      echo "(DESTDIR)/{{root}}" >> {{configFile}};
+      echo "\#define HDFlib {{hdflib}}" >> {{configFile}};
+      echo "\#define NetCDF4lib {{netcdf4lib}}" >> {{configFile}};
+      echo "\#define HDF5lib {{hdf5lib}}" >> {{configFile}};
+      echo "\#define NetCDFlib {{netcdflib}}" >> {{configFile}};
+      echo "\#define PNGlib {{pnglib}}" >> {{configFile}};
+      echo "\#define EEMDlib {{eemdlib}}" >> {{configFile}};
+      echo "\#define UdUnitslib {{udunitslib}}" >> {{configFile}};
+      echo "\#define LibSearch -L/usr/lib64" >> {{configFile}};
+      echo "\#define IncSearch -I/usr/include" >> {{configFile}};
+      echo "\#define BuildTRIANGLE 1" >> {{configFile}};
+      echo "\#define BuildHDFEOS 0" >> {{configFile}};
+      echo "\#define HDFEOSlib" >> {{configFile}};
+      echo "\#define BuildHDFEOS5 0" >> {{configFile}};
+      echo "\#define HDFEOS5lib" >> {{configFile}};
+      echo "\#define BuildGRIB2 0" >> {{configFile}};
+      echo "\#define GRIB2lib" >> {{configFile}};
+      echo "\#define NoMakeDepend" >> {{configFile}};
+      echo "\#endif" >> {{configFile}};
+      config/ymkmf;
+      make All
+    target: 
+  install:
+     makeinstall: >
+       mkdir -p $(ROOT){{root}};
+       make DESTDIR=$(ROOT) install
+  requires:
+    - "{{compiler}}_{{compiler_version}}"
+    - szip_{{versions.szip}}
+    - zlib_{{versions.zlib}}
+    - libjpeg_{{versions.libjpeg}}
+    - libpng_{{versions.libpng}}
+    - hdf4_{{versions.hdf4}}
+    - netcdf-c_{{versions.netcdf}}_{{compiler}}_{{compiler_version}}
+    - freetype_{{versions.freetype}}
+    - udunits_{{versions.udunits}}_{{compiler}}_{{compiler_version}}
+    - gsl_{{versions.gsl}}_{{compiler}}_{{compiler_version}}
+
+# Need this to compile ncl in spite of its claims otherwise
+# wget http://www.netlib.org/voronoi/triangle.zip
