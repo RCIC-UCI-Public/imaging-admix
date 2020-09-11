@@ -17,6 +17,4 @@
       - libjpeg/{{versions.libjpeg}}
     requires:
       - *ModuleCompiler_requires
-      - szip_{{versions.szip}}-module
-      - zlib_{{versions.zlib}}-module
-      - libjpeg_{{versions.libjpeg}}-module
+      - "{{module.prereq}}"
