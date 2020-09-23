@@ -1,0 +1,16 @@
+# Builds the module for vtk.
+!include vtk.yaml
+!include rcic-module.yaml
+---
+- package: vtk module 
+  category: IMAGING
+  module:
+    lib: lib64
+    prepend_path:
+      - PATH {{root}}/bin
+      - LD_LIBRARY_PATH {{root}}/{{module.lib}}
+      - *Flagspath
+    prereq:
+      - *ModuleCompiler_prereq
+    requires:
+      - *ModuleCompiler_requires

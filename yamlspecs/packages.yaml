@@ -5,6 +5,10 @@ system:
   - libXmu-devel
   - libXaw-devel
   - flex-devel
+  - expat-devel
+  - libX11-devel
+  - mesa-libGL-devel
+  - zlib-devel
 bootstrap:
   - zlib
   - zlib-module
@@ -21,6 +25,8 @@ bootstrap:
 build:
   - ncl
   - ncl-module
+  - vtk
+  - vtk-module
 manifest:
   - "{{bootstrap}}"
   - "{{build}}"

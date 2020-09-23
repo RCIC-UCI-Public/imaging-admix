@@ -1,0 +1,30 @@
+!include common.yaml
+---
+- package: VTK
+  name: vtk 
+  version: "{{versions.vtk}}"
+  vendor_source: https://www.vtk.org/files/release/9.0/{{package}}-{{version}}.{{extension}}
+  description: |
+    The Visualization Toolkit (VTK) {{version}} is an open-source, freely available software
+    system for 3D computer graphics, modeling, image processing, volume rendering, scientific
+    visualization, and 2D plotting. See https://vtk.org
+  src_dir: "{{package}}-{{version}}"
+  build:
+    cmake_args: -DCMAKE_INSTALL_PREFIX={{root}} 
+    configure: >
+      (mkdir builddir;
+      cd builddir; 
+      cmake {{build.cmake_args}} --prefix={{root}} ..)
+    configure_args: 
+    modules: 
+      - foundation 
+      - "{{compiler}}/{{compiler_version}}"
+      - python/{{versions.python3}}
+    pkgmake: cd builddir; make -j 4
+  extras: README* Copyright*
+  install:
+    makeinstall: >
+      cd builddir; 
+      cmake -DCMAKE_INSTALL_PREFIX=$(ROOT)/{{root}} -P cmake_install.cmake
+
+# See https://vtk.org/Wiki/VTK/Building/Linux if Qt is needed
