@@ -2,8 +2,9 @@
 ---
 - package: VTK
   name: vtk 
-  version: "{{versions.vtk}}"
-  vendor_source: https://www.vtk.org/files/release/9.0/{{package}}-{{version}}.{{extension}}
+  version: "{{versions.vtk.version}}"
+  rel: "{{versions.vtk.rel}}"
+  vendor_source: https://www.vtk.org/files/release/{{rel}}/{{package}}-{{version}}.{{extension}}
   description: |
     The Visualization Toolkit (VTK) {{version}} is an open-source, freely available software
     system for 3D computer graphics, modeling, image processing, volume rendering, scientific
@@ -19,7 +20,6 @@
     modules: 
       - foundation 
       - "{{compiler}}/{{compiler_version}}"
-      - python/{{versions.python3}}
     pkgmake: cd builddir; make -j 4
   extras: README* Copyright*
   install:
