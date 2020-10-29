@@ -8,8 +8,6 @@
     prepend_path:
       - *Prepend_path
       - *Flagspath
-#      - -d " " CPPFLAGS -I{{root}}/include
-#      - -d " " LDFLAGS "-L{{root}}/lib -Wl,-rpath,{{root}}/lib"
     prereq:
       - *ModuleCompiler_prereq
     requires:

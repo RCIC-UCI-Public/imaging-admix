@@ -81,6 +81,3 @@
     - freetype_{{versions.freetype}}
     - udunits_{{versions.udunits}}_{{compiler}}_{{compiler_version}}
     - gsl_{{versions.gsl}}_{{compiler}}_{{compiler_version}}
-
-# Need this to compile ncl in spite of its claims otherwise
-# wget http://www.netlib.org/voronoi/triangle.zip
