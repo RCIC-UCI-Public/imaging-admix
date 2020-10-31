@@ -1,0 +1,34 @@
+!include common.yaml
+---
+- package: AFNI
+  extension: tgz
+  name: afni 
+  version: "{{versions.afni}}"
+  src_dir: linux_centos_7_64
+  vendor_source: https://afni.nimh.nih.gov/pub/dist/tgz/{{src_dir}}.{{extension}}
+  description: |
+    AFNI (Analysis of Functional NeuroImages) {{version}}  is a leading software
+    suite of C, Python, R programs and shell scripts primarily developed for
+    the analysis and display of anatomical and functional MRI (FMRI) data
+  build:
+    configure: "echo No configure"
+    configure_args: ""
+    modules: ""
+    pkgmake: " echo binary distro"
+    target: 
+  install:
+     makeinstall: >
+       mkdir -p $(ROOT){{root}};
+       mv * $(ROOT){{root}}
+  requires: 
+    - libXp
+    - motif
+    - gsl
+    - xorg-x11-fonts-misc       
+    - PyQt4
+    - netpbm-progs
+    - gnome-tweak-tool
+    - ed  
+    - libpng12
+    - xorg-x11-server-Xvfb
+    - firefox

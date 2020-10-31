@@ -1,0 +1,11 @@
+# Builds the module for afni.
+!include afni.yaml
+!include rcic-module.yaml
+---
+- package: afni module 
+  category: IMAGING
+  module:
+    setenv: ""
+    prepend_path:
+      - PATH {{root}}
+      - LD_LIBRARY_PATH {{root}}

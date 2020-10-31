@@ -27,6 +27,8 @@ build:
   - ncl-module
   - vtk
   - vtk-module
+  - afni
+  - afni-module
 manifest:
   - "{{bootstrap}}"
   - "{{build}}"
