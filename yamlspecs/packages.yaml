@@ -29,6 +29,8 @@ build:
   - vtk-module
   - afni
   - afni-module
+  - ants
+  - ants-module
 manifest:
   - "{{bootstrap}}"
   - "{{build}}"
