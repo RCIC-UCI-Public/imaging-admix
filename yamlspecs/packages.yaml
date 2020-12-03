@@ -31,6 +31,8 @@ build:
   - afni-module
   - ants
   - ants-module
+  - mrtrix3
+  - mrtrix3-module
 manifest:
   - "{{bootstrap}}"
   - "{{build}}"

@@ -1,0 +1,29 @@
+!include common.yaml
+---
+- package: MRtrix3
+  name: mrtrix3
+  version: "{{versions.mrtrix3}}"
+  vendor_source: https://github.com/MRtrix3/mrtrix3/archive/{{version}}.{{extension}}
+  description: |
+    MRtrix3 {{version}} provides a set of tools to perform various types of diffusion 
+    MRI analyses, from various forms of tractography through to next-generation 
+    group-level analyses. See https://www.mrtrix.org
+  build:
+    configure: "no configure"
+    configure_args: ""
+    modules: 
+      - "{{compiler}}/{{compiler_version}}"
+      - eigen/{{versions.eigen}} 
+      - fftw/{{versions.fftw}} 
+      - python/{{versions.python3}} 
+    pkgmake: >
+      export EIGEN_CFLAGS="-isystem $$EIGEN_INCLUDE_DIR/eigen3";
+      export PATH=$$PATH:/usr/lib64/qt5/bin/;
+      ./configure;
+      ./build
+  extras: LICENSE*
+  install:
+     makeinstall: >
+       mkdir -p $(ROOT){{root}};
+       mv bin lib share $(ROOT){{root}}
+     installextra: for x in {{extras}}; do  $(INSTALL) -m 644 $$x $(ROOT){{root}}; done
