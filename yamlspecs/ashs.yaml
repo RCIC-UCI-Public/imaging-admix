@@ -1,0 +1,23 @@
+!include common.yaml
+---
+- package: ashs
+  name: ashs 
+  version: "{{versions.ashs}}"
+  ashsrel: "2.0.0_07202018"
+  extension: zip
+  vendor_source: https://www.nitrc.org/frs/download.php/10887/ashs-fastashs_{{ashsrel}}.{{extension}}
+  description: |
+    ASHS release {{ashsrel}} Automatic Segmentation of Hippocampal Subfields. 
+    For full documentation see https://sites.google.com/site/hipposubfields/home
+  src_dir: ashs-fastashs_beta
+  build:
+    configure: "echo no configure"
+    configure_args: ""
+    modules:  ""
+    pkgmake: " echo using binary distro"
+  extras: README* LICENSE
+  install:
+    makeinstall: >
+      mkdir -p $(ROOT){{root}};
+      mv bin ext $(ROOT){{root}}
+  requires: ""

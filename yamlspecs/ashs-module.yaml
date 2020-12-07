@@ -1,0 +1,12 @@
+# Builds the module for ashs.
+!include ashs.yaml
+!include rcic-module.yaml
+---
+- package: ashs module 
+  category: IMAGING
+  module:
+    setenv:
+      - ASHS_ROOT {{root}}
+    prepend_path:
+      - PATH {{root}}/ext/Linux/bin
+      - PATH {{root}}/bin

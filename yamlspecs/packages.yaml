@@ -33,6 +33,8 @@ build:
   - ants-module
   - mrtrix3
   - mrtrix3-module
+  - ashs
+  - ashs-module
 manifest:
   - "{{bootstrap}}"
   - "{{build}}"

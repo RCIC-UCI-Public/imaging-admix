@@ -23,3 +23,13 @@ Scientific data analysis and visualization
    ```
 
    Version info is in <install-path>/AFNI_version.txt
+
+1. ANTS
+
+   Dependencies  require gcc v4 to work. Fail with gcc 8.4.0
+
+1. ASHS
+
+   For source checkout, last revision is 121
+   svn --username anonymous --password anonymous checkout https://www.nitrc.org/svn/ashs
+   No clear docs how to compile. Currently, use binary distro for build.
