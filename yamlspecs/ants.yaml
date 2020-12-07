@@ -19,11 +19,11 @@
     configure_args: 
     modules: 
       - foundation 
-#      - "{{compiler}}/{{compiler_version}}"
     pkgmake: cd builddir; make -j 4
   extras: README* Copyright*
   install:
     makeinstall: >
+      mkdir -p $(ROOT){{root}};
       cd builddir/ANTS-build;
       cmake -DCMAKE_INSTALL_PREFIX=$(ROOT)/{{root}} -P cmake_install.cmake
   requires: ""
