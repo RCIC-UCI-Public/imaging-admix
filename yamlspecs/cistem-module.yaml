@@ -1,0 +1,15 @@
+# Builds the module for cistem.
+!include cistem.yaml
+!include rcic-module.yaml
+---
+- package: cistem module 
+  category: IMAGING
+  module:
+    setenv: ""
+    prepend_path:
+      - PATH {{root}}/bin
+    prereq:
+      - "{{build.modules}}"
+    requires:
+      - *ModuleCompiler_requires
+      - "{{module.prereq}}"

@@ -35,6 +35,8 @@ build:
   - mrtrix3-module
   - ashs
   - ashs-module
+  - cistem
+  - cistem-module
 manifest:
   - "{{bootstrap}}"
   - "{{build}}"

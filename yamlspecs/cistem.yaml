@@ -1,0 +1,28 @@
+!include common.yaml
+---
+- package: cistem
+  name: cistem 
+  version: "{{versions.cistem}}"
+  vendor_source: https://cistem.org/system/tdf/upload3/{{name}}-{{version}}-beta-source-code.{{extension}}?file=0
+  description: |
+    Computational Imaging System for Transmission Electron Microscopy
+    (cisTEM) {{version}}-beta is user-friendly software to process cryo-EM
+    images of macromolecular complexes and obtain high-resolution 3D
+    reconstructions from them. See https://cistem.org
+  src_dir: "{{name}}-{{version}}-beta"
+  build:
+    preconfigure: 
+      export WXWVER=`echo {{versions.wxwidgets}} | awk 'BEGIN { FS = "."; } { printf "% d", ($$1 * 1000 + $$2) * 1000 + $$3;}'`;
+      sed -i "s/3000002/$$WXWVER/" configure
+    modules: 
+      - "{{compiler}}/{{compiler_version}}"
+      - wxWidgets/{{versions.wxwidgets}}
+      - fftw/{{versions.fftw}}
+      - mkl/{{versions.mkl}}
+  requires: 
+    - "{{compiler}}_{{compiler_version}}"
+    - wxWidgets_{{versions.wxwidgets}}
+    - fftw_{{versions.fftw}}
+    - mkl_{{versions.mkl}}
+
+# Sed command substitutes hard-wired wxWIdgets version 3000002 (for 3.0.2) in configure
