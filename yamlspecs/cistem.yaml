@@ -2,6 +2,7 @@
 ---
 - package: cistem
   name: cistem 
+  release: 2
   version: "{{versions.cistem}}"
   vendor_source: https://cistem.org/system/tdf/upload3/{{name}}-{{version}}-beta-source-code.{{extension}}?file=0
   description: |
@@ -17,12 +18,13 @@
     modules: 
       - "{{compiler}}/{{compiler_version}}"
       - wxWidgets/{{versions.wxwidgets}}
-      - fftw/{{versions.fftw}}
+      - fftw/{{versions.fftw}}/{{compiler}}.{{compiler_version}}
       - mkl/{{versions.mkl}}
   requires: 
     - "{{compiler}}_{{compiler_version}}"
     - wxWidgets_{{versions.wxwidgets}}
-    - fftw_{{versions.fftw}}
+    - fftw_{{versions.fftw}}_{{compiler}}_{{compiler_version}}
     - mkl_{{versions.mkl}}
+    - fftw_{{versions.fftw}}_{{compiler}}_{{compiler_version}}
 
 # Sed command substitutes hard-wired wxWIdgets version 3000002 (for 3.0.2) in configure
