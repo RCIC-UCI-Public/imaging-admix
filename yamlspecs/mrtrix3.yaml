@@ -2,6 +2,7 @@
 ---
 - package: MRtrix3
   name: mrtrix3
+  release: 3
   version: "{{versions.mrtrix3}}"
   vendor_source: https://github.com/MRtrix3/mrtrix3/archive/{{version}}.{{extension}}
   description: |
@@ -11,11 +12,13 @@
   build:
     configure: "no configure"
     configure_args: ""
-    modules: 
+    base_modules: 
       - "{{compiler}}/{{compiler_version}}"
-      - eigen/{{versions.eigen}} 
-      - fftw/{{versions.fftw}} 
+      - fftw/{{versions.fftw}}/{{compiler}}.{{compiler_version}}
       - python/{{versions.python3}} 
+    modules:
+      - "{{build.base_modules}}"
+      - eigen/{{versions.eigen}} 
     pkgmake: >
       export EIGEN_CFLAGS="-isystem $$EIGEN_INCLUDE_DIR/eigen3";
       export PATH=$$PATH:/usr/lib64/qt5/bin/;
@@ -27,3 +30,7 @@
        mkdir -p $(ROOT){{root}};
        mv bin lib share $(ROOT){{root}}
      installextra: for x in {{extras}}; do  $(INSTALL) -m 644 $$x $(ROOT){{root}}; done
+  requires:
+    - "{{compiler}}_{{compiler_version}}"
+    - python_{{versions.python3}}
+    - fftw_{{versions.fftw}}_{{compiler}}_{{compiler_version}}
