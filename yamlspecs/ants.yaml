@@ -20,10 +20,11 @@
     modules: 
       - foundation 
     pkgmake: cd builddir; make -j 4
-  extras: README* Copyright*
+  extras: README* COPY*
   install:
     makeinstall: >
       mkdir -p $(ROOT){{root}};
       cd builddir/ANTS-build;
-      cmake -DCMAKE_INSTALL_PREFIX=$(ROOT)/{{root}} -P cmake_install.cmake
+      cmake -DCMAKE_INSTALL_PREFIX=$(ROOT)/{{root}} -P cmake_install.cmake;
+      cd ../../
   requires: ""
