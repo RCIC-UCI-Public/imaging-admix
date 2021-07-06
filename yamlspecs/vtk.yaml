@@ -17,14 +17,15 @@
       cd builddir; 
       cmake {{build.cmake_args}} --prefix={{root}} ..)
     configure_args: 
+    base_modules: 
+      - "{{compiler}}/{{compiler_version}}"
     modules: 
       - foundation 
-      - "{{compiler}}/{{compiler_version}}"
+      - "{{build.base_modules}}"
     pkgmake: cd builddir; make -j 4
   extras: README* Copyright*
   install:
     makeinstall: >
       cd builddir; 
       cmake -DCMAKE_INSTALL_PREFIX=$(ROOT)/{{root}} -P cmake_install.cmake
-
 # See https://vtk.org/Wiki/VTK/Building/Linux if Qt is needed

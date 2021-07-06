@@ -14,8 +14,6 @@
     configure: "echo No configure"
     configure_args: ""
     modules: ""
-    pkgmake: " echo binary distro"
-    target: 
   install:
      makeinstall: >
        mkdir -p $(ROOT){{root}};

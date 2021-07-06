@@ -1,4 +1,3 @@
-# Builds the module for vtk.
 !include vtk.yaml
 !include rcic-module.yaml
 ---
@@ -11,6 +10,4 @@
       - LD_LIBRARY_PATH {{root}}/{{module.lib}}
       - *Flagspath
     prereq:
-      - *ModuleCompiler_prereq
-    requires:
-      - *ModuleCompiler_requires
+      - "{{build.base_modules}}"

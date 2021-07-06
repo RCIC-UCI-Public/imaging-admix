@@ -1,4 +1,3 @@
-# Builds the module for libjpeg.
 !include libjpeg.yaml
 !include rcic-module.yaml
 ---
@@ -8,7 +7,3 @@
     prepend_path:
       - *Prepend_path
       - *Flagspath
-    prereq:
-      - *ModuleCompiler_prereq
-    requires:
-      - *ModuleCompiler_requires

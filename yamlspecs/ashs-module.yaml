@@ -1,4 +1,3 @@
-# Builds the module for ashs.
 !include ashs.yaml
 !include rcic-module.yaml
 ---

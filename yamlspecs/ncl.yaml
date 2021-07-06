@@ -21,9 +21,9 @@
   pnglib: -L$$libpng__PREFIX/lib -lpng -L$$zlib__PREFIX/lib -lz
   netcdflib: -L$$netcdfc__PREFIX/lib -lnetcdf -L/opt/foundation/lib -lcurl
   build:
-    configure: "echo No configure"
-    configure_args: ""
-    modules:
+    configure:
+    configure_args:
+    base_modules:
       - "{{compiler}}/{{compiler_version}}"
       - szip/{{versions.szip}}
       - zlib/{{versions.zlib}}
@@ -34,6 +34,8 @@
       - freetype/{{versions.freetype}}
       - udunits/{{versions.udunits}}/{{compiler}}.{{compiler_version}}
       - gsl/{{versions.gsl}}/{{compiler}}.{{compiler_version}}
+    modules:
+      - "{{build.base_modules}}"
       - foundation
     pkgmake: >
       export EXTRA_INCLUDES=$$CPPFLAGS;
@@ -65,7 +67,6 @@
       echo "\#endif" >> {{configFile}};
       config/ymkmf;
       make All
-    target: 
   install:
      makeinstall: >
        mkdir -p $(ROOT){{root}};

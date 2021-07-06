@@ -10,8 +10,8 @@
     MRI analyses, from various forms of tractography through to next-generation 
     group-level analyses. See https://www.mrtrix.org
   build:
-    configure: "no configure"
-    configure_args: ""
+    configure:
+    configure_args:
     base_modules: 
       - "{{compiler}}/{{compiler_version}}"
       - fftw/{{versions.fftw}}/{{compiler}}.{{compiler_version}}

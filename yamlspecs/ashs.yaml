@@ -11,10 +11,10 @@
     For full documentation see https://sites.google.com/site/hipposubfields/home
   src_dir: ashs-fastashs_beta
   build:
-    configure: "echo no configure"
-    configure_args: ""
-    modules:  ""
-    pkgmake: " echo using binary distro"
+    configure: 
+    configure_args: 
+    modules: 
+    pkgmake: 
   extras: README* LICENSE
   install:
     makeinstall: >
