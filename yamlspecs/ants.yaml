@@ -27,4 +27,4 @@
       cd builddir/ANTS-build;
       cmake -DCMAKE_INSTALL_PREFIX=$(ROOT)/{{root}} -P cmake_install.cmake;
       cd ../../
-  requires: ""
+  requires:

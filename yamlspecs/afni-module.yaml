@@ -4,7 +4,7 @@
 - package: afni module 
   category: IMAGING
   module:
-    setenv: ""
+    setenv:
     prepend_path:
       - PATH {{root}}
       - LD_LIBRARY_PATH {{root}}

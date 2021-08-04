@@ -4,6 +4,6 @@
 - package: cistem module 
   category: IMAGING
   module:
-    setenv: ""
+    setenv:
     prepend_path:
       - PATH {{root}}/bin

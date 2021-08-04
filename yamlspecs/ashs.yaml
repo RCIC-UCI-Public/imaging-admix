@@ -20,4 +20,4 @@
     makeinstall: >
       mkdir -p $(ROOT){{root}};
       mv bin ext $(ROOT){{root}}
-  requires: ""
+  requires:

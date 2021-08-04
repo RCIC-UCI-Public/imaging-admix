@@ -11,9 +11,9 @@
     suite of C, Python, R programs and shell scripts primarily developed for
     the analysis and display of anatomical and functional MRI (FMRI) data
   build:
-    configure: "echo No configure"
-    configure_args: ""
-    modules: ""
+    configure: echo
+    configure_args:
+    modules:
   install:
      makeinstall: >
        mkdir -p $(ROOT){{root}};
