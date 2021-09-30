@@ -3,8 +3,8 @@
 ---
 - extension: tar.gz
   versions: !include versions.yaml
-  compiler: gcc
-  compiler_version: "{{versions.gcc}}"
+  compiler: "{{versions.compiler.name}}"
+  compiler_version: "{{versions.compiler.version}}"
   build:
     configure: ./configure
     configure_args:  --prefix={{root}}
