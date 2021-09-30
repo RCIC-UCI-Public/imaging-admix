@@ -1,13 +1,8 @@
-!include rcic-package.yaml
-!include rpm.yaml
+!include common.yaml
 ---
 - package: NCL
-  extension: tar.gz
   name: ncl 
-  versions: !include versions.yaml
   version: "{{versions.ncl}}"
-  compiler: gcc
-  compiler_version: "{{versions.gcc}}"
   vendor_source: https://github.com/NCAR/ncl/archive/{{version}}.{{extension}}
   description: |
     NCL {{version}} is developed by the Computational and Information Systems Lab at
