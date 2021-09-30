@@ -2,7 +2,6 @@
 ---
 netcdf: "4.7.0"
 udunits: "2.2.26"
-gsl: "2.6"
 zlib: "1.2.11"
 libpng: "1.6.37"
 libjpeg: "9d"
@@ -17,7 +16,6 @@ vtk:
 afni: "20.3.01"
 ants: "2.2.0"
 mrtrix3: "3.0.2"
-fftw: "3.3.8"
 ashs: "2.0.0"
 cistem: "1.0.0"
 wxwidgets: "3.1.3"
