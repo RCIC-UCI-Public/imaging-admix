@@ -11,7 +11,7 @@
     For full documentation see https://sites.google.com/site/hipposubfields/home
   src_dir: ashs-fastashs_beta
   build:
-    configure: 
+    configure: echo
     configure_args: 
     modules: 
     pkgmake: 
