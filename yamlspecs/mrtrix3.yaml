@@ -2,7 +2,7 @@
 ---
 - package: MRtrix3
   name: mrtrix3
-  release: 3
+  #release: 3
   version: "{{versions.mrtrix3}}"
   vendor_source: https://github.com/MRtrix3/mrtrix3/archive/{{version}}.{{extension}}
   description: |
@@ -10,7 +10,7 @@
     MRI analyses, from various forms of tractography through to next-generation 
     group-level analyses. See https://www.mrtrix.org
   build:
-    configure:
+    configure: echo
     configure_args:
     base_modules: 
       - "{{compiler}}/{{compiler_version}}"
@@ -23,6 +23,7 @@
       export EIGEN_CFLAGS="-isystem $$EIGEN_INCLUDE_DIR/eigen3";
       export PATH=/usr/lib64/qt5/bin/:$$PATH;
       ./configure;
+      sed -i "s/cwd=folder/cwd='\/tmp'/" build;
       ./build
   extras: LICENSE*
   install:
