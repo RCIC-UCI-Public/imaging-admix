@@ -25,18 +25,19 @@ bootstrap:
 build:
   - ncl
   - ncl-module
-  - vtk
-  - vtk-module
   - afni
   - afni-module
   - ants
   - ants-module
   - mrtrix3
   - mrtrix3-module
-  - ashs
-  - ashs-module
-  - cistem
-  - cistem-module
 manifest:
   - "{{bootstrap}}"
   - "{{build}}"
+# unused
+# - vtk
+# - vtk-module
+# - ashs
+# - ashs-module
+# - cistem
+# - cistem-module

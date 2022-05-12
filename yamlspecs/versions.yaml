@@ -1,7 +1,5 @@
 !include site.yaml
 ---
-netcdf: "4.7.0"
-udunits: "2.2.26"
 zlib: "1.2.11"
 libpng: "1.6.37"
 libjpeg: "9d"
@@ -10,12 +8,12 @@ szip: "2.1.1"
 hdf4: "4.2.15"
 ncl: "6.6.2"
 fsl: "6.0.4"
-vtk: 
-  version: "9.0.1"
-  rel: "9.0"
 afni: "20.3.01"
 ants: "2.2.0"
 mrtrix3: "3.0.2"
-ashs: "2.0.0"
-cistem: "1.0.0"
-wxwidgets: "3.1.3"
+#vtk:
+#  version: "9.0.1"
+#  rel: "9.0"
+#ashs: "2.0.0"
+#cistem: "1.0.0"
+#wxwidgets: "3.1.3"
