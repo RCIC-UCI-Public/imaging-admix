@@ -20,7 +20,7 @@
     base_modules: 
       - "{{compiler}}/{{compiler_version}}"
     modules: 
-      - foundation 
+      - foundation/{{versions.foundation}}
       - "{{build.base_modules}}"
     pkgmake: cd builddir; make -j 4
   extras: README* Copyright*

@@ -20,7 +20,7 @@
       cmake {{build.cmake_args}} --trace-expand ../)
     configure_args: 
     modules: 
-      - foundation 
+      - foundation/{{versions.foundation}}
     pkgmake: cd builddir; make -j 4
   extras: README* COPY*
   install:
