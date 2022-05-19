@@ -13,20 +13,23 @@
     medical image registration and segmentation toolkit
   src_dir: "{{package}}-{{version}}"
   build:
-    cmake_args: -DCMAKE_INSTALL_PREFIX={{root}} -DBUILD_TESTING=OFF
+    cmake_args: -DCMAKE_INSTALL_PREFIX={{root}} -DBUILD_TESTING=OFF -DSuperBuild_ANTS_USE_GIT_PROTOCOL=off
     configure: >
       (mkdir builddir;
       cd builddir; 
+      unset MAKEFLAGS;
       cmake {{build.cmake_args}} --trace-expand ../)
     configure_args: 
     modules: 
       - foundation/{{versions.foundation}}
-    pkgmake: cd builddir; make -j 4
+      - !ifeq "{{versions.os_release}},8,gcc/{{versions.ants_gcc}},"
+    pkgmake: cd builddir; unset MAKEFLAGS; make -j 4
   extras: README* COPY*
   install:
     makeinstall: >
       mkdir -p $(ROOT){{root}};
       cd builddir/ANTS-build;
+      unset MAKEFLAGS;
       cmake -DCMAKE_INSTALL_PREFIX=$(ROOT)/{{root}} -P cmake_install.cmake;
       cd ../../
   requires:
