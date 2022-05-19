@@ -1,0 +1,18 @@
+# this is for afni compiled from source
+!include afni.yaml
+---
+- src_dir: "{{name}}-{{package}}_{{version}}"
+  extension: tar.gz
+  vendor_source: https://github.com/afni/afni/archive/refs/tags/{{package}}_{{version}}.{{extension}}
+  build:
+    patchfile: "{{name}}-{{version}}.patch"
+    pkgmake: >
+      cd src;
+      cp Makefile.linux_openmp_64 Makefile;
+      make vastness
+  install:
+    makeinstall: >
+      mkdir -p $(ROOT){{root}};
+      mv src/linux_openmp_64/* $(ROOT){{root}}
+  requires:
+    - "{{requires_common}}"

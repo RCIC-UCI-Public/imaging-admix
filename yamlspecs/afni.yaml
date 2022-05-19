@@ -1,3 +1,4 @@
+# for binary distro
 !include common.yaml
 ---
 - package: AFNI
@@ -18,15 +19,18 @@
      makeinstall: >
        mkdir -p $(ROOT){{root}};
        mv * $(ROOT){{root}}
-  requires: 
+  requires_common:
     - libXp
+    - libXpm
     - motif
-    - gsl
-    - xorg-x11-fonts-misc       
-    - PyQt4
+    - gsl-devel
+    - xorg-x11-fonts-misc
     - netpbm-progs
-    - gnome-tweak-tool
-    - ed  
-    - libpng12
+    - ed
     - xorg-x11-server-Xvfb
     - firefox
+    - libpng15
+  requires:
+    - PyQt4
+    - gnome-tweak-tool
+    - "{{requires_common}}"
