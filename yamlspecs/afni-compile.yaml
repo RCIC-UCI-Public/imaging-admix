@@ -16,3 +16,4 @@
       mv src/linux_openmp_64/* $(ROOT){{root}}
   requires:
     - "{{requires_common}}"
+  rpmBuildIdLinks: none
