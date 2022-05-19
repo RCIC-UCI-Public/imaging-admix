@@ -1,3 +1,12 @@
+site: !include site.yaml
+system8:
+  - libXp-devel
+  - motif-devel
+  - xorg-x11-fonts-misc
+  - xorg-x11-server-Xvfb
+  - netpbm-progs
+  - ed
+  - libpng15
 system:
   - autoconf
   - cairo-devel
@@ -9,9 +18,11 @@ system:
   - libX11-devel
   - mesa-libGL-devel
   - zlib-devel
+  - !ifeq "{{site.os_release}},8,libtirpc-devel,glibc-headers"
+  - !ifeq "{{site.os_release}},8,{{system8}},"
 bootstrap:
-  - zlib
-  - zlib-module
+  - !ifeq "{{site.os_release}},7,zlib,"
+  - !ifeq "{{site.os_release}},7,zlib-module,"
   - libpng
   - libpng-module
   - libjpeg
@@ -25,8 +36,8 @@ bootstrap:
 build:
   - ncl
   - ncl-module
-  - afni
-  - afni-module
+  - !ifeq "{{site.os_release}},7,afni,afni-compile"
+  - !ifeq "{{site.os_release}},7,afni-module,afni-compile-module"
   - ants
   - ants-module
   - mrtrix3
@@ -34,6 +45,8 @@ build:
 manifest:
   - "{{bootstrap}}"
   - "{{build}}"
+sets:
+  - centos8
 # unused
 # - vtk
 # - vtk-module

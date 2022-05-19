@@ -1,0 +1,11 @@
+!include packages.yaml
+---
+versions: versions-centos8.yaml
+bootstrap:
+build:
+  - afni-compile
+  - afni-compile-module
+  - ants
+  - ants-module
+  - mrtrix3
+  - mrtrix3-module
