@@ -1,0 +1,38 @@
+--- afni-AFNI_20.3.01/src/Makefile.linux_openmp_64	2020-10-19 15:28:17.000000000 -0700
++++ afni-AFNI_20.3.01/src/Makefile.linux_openmp_64.new	2022-05-18 16:48:13.755607978 -0700
+@@ -6,7 +6,7 @@
+ USE_ZLIB = -DHAVE_ZLIB
+ LZLIB    = -lz
+ USE_GIFTI = -DHAVE_GIFTI
+-LGIFTI    = /usr/lib64/libexpat.a
++LGIFTI    = -lexpat
+ 
+ # ------------------------------
+ # python from C (off for now)
+@@ -17,7 +17,7 @@
+ # X configuration
+ #
+ # uncomment to build using local /usr/local/afniX 'X' tree
+-USE_LOCAL_X_TREE = 1
++#USE_LOCAL_X_TREE = 1
+ ifdef USE_LOCAL_X_TREE
+     XROOT = /usr/local/afniX
+     XROOT_I = -I$(XROOT)/include
+@@ -37,7 +37,7 @@
+ endif
+ 
+ # in case user wants to override with system dynamic libs
+-# XLIBS = -lXm -lXt
++XLIBS = -lXm -lXt
+ # ----------------------------------------------------------------------
+ 
+ CCDEBS = -DAFNI_DEBUG -DIMSEQ_DEBUG -DDISPLAY_DEBUG -DTHD_DEBUG
+@@ -47,7 +47,7 @@
+ CC     = /usr/bin/gcc -O2 -m64 -fPIC -DREAD_WRITE_64 -DLINUX2 $(CEXTRA)
+ CCVOL  = /usr/bin/gcc -O2 -m64 -fPIC -DREAD_WRITE_64 -DLINUX2 $(CEXTRA)
+ CCFAST = /usr/bin/gcc -O2 -m64 -fPIC -DREAD_WRITE_64 -DLINUX2 $(CEXTRA)
+-CCOLD  = /usr/bin/gcc -V 34 -O2 -m64 -fPIC -DREAD_WRITE_64 -DLINUX2 $(CEXTRA)
++CCOLD  = /usr/bin/gcc -O2 -m64 -fPIC -DREAD_WRITE_64 -DLINUX2 $(CEXTRA)
+ 
+ # The following line includes compiling for the SSE operations.
+ # However, I found that it actually makes things worse in some test code.
