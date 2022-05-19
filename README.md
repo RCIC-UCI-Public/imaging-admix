@@ -12,21 +12,29 @@ Scientific data analysis and visualization
 
 1. AFNI
 
-   Download precompiled binaries from https://afni.nimh.nih.gov/pub/dist/doc/htmldoc/background_install/download_links.html
+   1. centos7  (use afni)
 
-   Install instructions https://afni.nimh.nih.gov/pub/dist/doc/htmldoc/background_install/install_instructs/steps_linux_Fed_RH.html
+      Download precompiled binaries *tgz
 
-   After install, can check version with
+      Install instructions https://afni.nimh.nih.gov/pub/dist/doc/htmldoc/background_install/install_instructs/steps_linux_Fed_RH.html
 
-   ```bash
-   ./afni -ver
-   ```
+      After install, can check version with
 
-   Version info is in <install-path>/AFNI_version.txt
+      ```bash
+      ./afni -ver
+      ```
+
+      Version info is in <install-path>/AFNI_version.txt
+
+   1. centos8  (use afni-compile)
+
+      The binary version  of afni does not work as there precompiled dependencies no longer on centos8.
+      Download sources for the sme version and compile. Note, the distro is *tar.gz
 
 1. ANTS
 
    Dependencies  require gcc v4 to work. Fail with gcc 8.4.0
+   On centos7 can compile with system compiler 4.*. On centos8 use gcc 6.5.0.
 
 1. ASHS
 
