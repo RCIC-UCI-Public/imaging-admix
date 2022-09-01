@@ -1,0 +1,26 @@
+!include common.yaml
+---
+- package: R module phia
+  name: phia
+  version: "{{versions.phia}}.{{versions.phia_rel}}"
+  rpkgname: "{{name}}"
+  baserpm: "R_{{versions.R}}-{{name}}"
+  vendor_source: http://cran.r-project.org/src/contrib/{{name}}_{{versions.phia}}-{{versions.phia_rel}}.{{extension}}
+  src_tarball: "{{name}}_{{version}}.{{extension}}"
+  no_src_dir: true
+  description: >
+    {{rpkgname}} version {{version}} for R version {{versions.R}}. 
+  libpath: "{{pkg_defaults.app_path}}/R/{{versions.R}}/lib64/R/library"
+  root: "{{libpath}}/{{rpkgname}}"
+  build:
+    modules:
+      - R/{{versions.R}}
+    pkgmake: echo installed with R CMD INSTALL
+  install:
+    makeinstall: >
+      mkdir -p $(ROOT)/{{libpath}};
+      R CMD INSTALL -l $(ROOT)/{{libpath}} {{src_tarball}}
+  files:
+    -  "{{root}}"
+  requires: 
+     - R_{{versions.R}}

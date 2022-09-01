@@ -38,6 +38,7 @@ build:
   - ncl-module
   - !ifeq "{{site.os_release}},7,afni,afni-compile"
   - !ifeq "{{site.os_release}},7,afni-module,afni-compile-module"
+  - phia
   - ants
   - ants-module
   - mrtrix3

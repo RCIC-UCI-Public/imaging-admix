@@ -3,17 +3,21 @@
 ---
 - src_dir: "{{name}}-{{package}}_{{version}}"
   extension: tar.gz
+  release: 2
   vendor_source: https://github.com/afni/afni/archive/refs/tags/{{package}}_{{version}}.{{extension}}
   build:
     patchfile: "{{name}}-{{version}}.patch"
+    modules:
+      - R/{{versions.R}}
     pkgmake: >
       cd src;
       cp Makefile.linux_openmp_64 Makefile;
-      make vastness
+      unset MAKEFLAGS; make vastness
   install:
     makeinstall: >
       mkdir -p $(ROOT){{root}};
       mv src/linux_openmp_64/* $(ROOT){{root}}
   requires:
     - "{{requires_common}}"
+    - R_{{versions.R}}-phia
   rpmBuildIdLinks: none

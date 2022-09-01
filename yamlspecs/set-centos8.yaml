@@ -5,6 +5,7 @@ bootstrap:
 build:
   - afni-compile
   - afni-compile-module
+  - phia
   - ants
   - ants-module
   - mrtrix3
