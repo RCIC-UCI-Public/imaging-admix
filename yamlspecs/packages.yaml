@@ -36,11 +36,7 @@ bootstrap:
 build:
   - ncl
   - ncl-module
-  - !ifeq "{{site.os_release}},7,afni,afni-compile"
-  - !ifeq "{{site.os_release}},7,afni-module,afni-compile-module"
   - phia
-  - ants
-  - ants-module
   - mrtrix3
   - mrtrix3-module
 manifest:
@@ -48,10 +44,3 @@ manifest:
   - "{{build}}"
 sets:
   - centos8
-# unused
-# - vtk
-# - vtk-module
-# - ashs
-# - ashs-module
-# - cistem
-# - cistem-module

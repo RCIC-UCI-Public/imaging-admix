@@ -1,11 +1,20 @@
 # this is for afni compiled from source
-!include afni.yaml
+!include common.yaml
 ---
-- src_dir: "{{name}}-{{package}}_{{version}}"
+- package: AFNI
+  name: afni
+  version: "{{versions.afni}}"
+  src_dir: "{{name}}-{{package}}_{{version}}"
   extension: tar.gz
-  release: 2
+  release: 3
   vendor_source: https://github.com/afni/afni/archive/refs/tags/{{package}}_{{version}}.{{extension}}
+  description: |
+    AFNI (Analysis of Functional NeuroImages) {{version}}  is a leading software
+    suite of C, Python, R programs and shell scripts primarily developed for
+    the analysis and display of anatomical and functional MRI (FMRI) data
   build:
+    configure: echo
+    configure_args:
     patchfile: "{{name}}-{{version}}.patch"
     modules:
       - R/{{versions.R}}
@@ -18,6 +27,15 @@
       mkdir -p $(ROOT){{root}};
       mv src/linux_openmp_64/* $(ROOT){{root}}
   requires:
-    - "{{requires_common}}"
+    - libXp
+    - libXpm
+    - motif
+    - gsl-devel
+    - xorg-x11-fonts-misc
+    - netpbm-progs
+    - ed
+    - xorg-x11-server-Xvfb
+    - firefox
+    - libpng15
     - R_{{versions.R}}-phia
   rpmBuildIdLinks: none
