@@ -37,8 +37,6 @@ build:
   - ncl
   - ncl-module
   - phia
-  - mrtrix3
-  - mrtrix3-module
 manifest:
   - "{{bootstrap}}"
   - "{{build}}"
