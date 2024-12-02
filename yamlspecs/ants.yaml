@@ -20,9 +20,11 @@
       unset MAKEFLAGS;
       cmake {{build.cmake_args}} --trace-expand ../)
     configure_args: 
+    base_modules: 
+      - gcc/{{versions.ants_gcc}}
     modules: 
-      - foundation/{{versions.foundation}}
-      - !ifeq "{{versions.os_release}},8,gcc/{{versions.ants_gcc}},"
+      - cmake/{{versions.cmake}}
+      - "{{build.base_modules}}"
     pkgmake: cd builddir; unset MAKEFLAGS; make -j 4
   extras: README* COPY*
   install:

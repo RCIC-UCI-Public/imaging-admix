@@ -8,4 +8,4 @@
       - PATH {{root}}/bin
       - LD_LIBRARY_PATH {{root}}/{{module.lib}}
     prereq:
-      - !ifeq "{{versions.os_release}},8,gcc/{{versions.ants_gcc}},"
+      - "{{build.base_modules}}"
