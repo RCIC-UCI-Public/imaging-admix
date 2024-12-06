@@ -37,6 +37,8 @@ build:
   - ncl
   - ncl-module
   - phia
+  - ants
+  - ants-module
 manifest:
   - "{{bootstrap}}"
   - "{{build}}"

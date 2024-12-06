@@ -8,5 +8,3 @@ build:
   - phia
   - ants
   - ants-module
-  - mrtrix3
-  - mrtrix3-module
