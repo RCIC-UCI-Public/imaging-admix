@@ -21,8 +21,6 @@ system:
   - !ifeq "{{site.os_release}},8,libtirpc-devel,glibc-headers"
   - !ifeq "{{site.os_release}},8,{{system8}},"
 bootstrap:
-  - !ifeq "{{site.os_release}},7,zlib,"
-  - !ifeq "{{site.os_release}},7,zlib-module,"
   - libpng
   - libpng-module
   - libjpeg
@@ -37,8 +35,6 @@ build:
   - ncl
   - ncl-module
   - phia
-# - ants
-# - ants-module
 manifest:
   - "{{bootstrap}}"
   - "{{build}}"

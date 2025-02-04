@@ -1,6 +1,5 @@
 !include site.yaml
 ---
-zlib: "1.2.11"
 libpng: "1.6.37"
 libjpeg: "9d"
 freetype: "2.10.2"
@@ -8,7 +7,5 @@ szip: "2.1.1"
 hdf4: "4.2.15"
 ncl: "6.6.2"
 curl: "7.81.0"
-ants_gcc: "6.5.0"
 phia: "0.2"
 phia_rel: "1"
-ants: "2.2.0"

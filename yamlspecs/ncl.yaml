@@ -8,8 +8,7 @@
     NCL {{version}} is developed by the Computational and Information Systems Lab at
     the National Center for Atmospheric Research (NCAR). See http://www.ncl.ucar.edu
   configFile: config/Site.local
-  zlibmod: !ifeq "{{versions.os_release}},7,zlib/{{versions.zlib}},"
-  zlibopt: !ifeq "{{versions.os_release}},7,-L$$zlib__PREFIX/lib,"
+  zlibopt: 
   tirpc: !ifeq "{{versions.os_release}},7,,-ltirpc"
   hdflib: -L$$hdf4__PREFIX/lib {{tirpc}} -lmfhdf -ldf -L$$libjpeg__PREFIX/lib -ljpeg {{zlibopt}} -lz -L$$szip__PREFIX/lib -lsz
   netcdf4lib: -L$$hdf5__PREFIX/lib -lhdf5_hl -lhdf5 -L$$szip__PREFIX/lib -lsz
@@ -23,7 +22,6 @@
     base_modules:
       - "{{compiler}}/{{compiler_version}}"
       - szip/{{versions.szip}}
-      - "{{zlibmod}}"
       - libjpeg/{{versions.libjpeg}}
       - libpng/{{versions.libpng}}
       - hdf4/{{versions.hdf4}}
@@ -72,7 +70,6 @@
   requires:
     - "{{compiler}}_{{compiler_version}}"
     - szip_{{versions.szip}}
-    - !ifeq "{{versions.os_release}},7,zlib_{{versions.zlib}},"
     - libjpeg_{{versions.libjpeg}}
     - libpng_{{versions.libpng}}
     - hdf4_{{versions.hdf4}}

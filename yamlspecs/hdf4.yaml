@@ -11,7 +11,6 @@
     levels, HDF is a software library that provides high-level APIs and a 
     low-level data interface. See https://portal.hdfgroup.org/display/support
   src_dir: hdf-{{version}}
-  zlibopt: !ifeq "{{versions.os_release}},7,--with-zlib=$$zlib__PREFIX,"
   dummy: !ifeq "{{versions.os_release}},7,HAVE_TIRPC,dummyHAVE_TIRPC"
   build:
     preconfigure:
@@ -20,11 +19,9 @@
       --disable-netcdf
       --prefix={{root}}
       --with-szlib=$$szip__PREFIX 
-      {{zlibopt}}
       --with-jpeg=$$libjpeg__PREFIX
     pkgmake: unset MAKEFLAGS; make -j 8
     modules:
       - "{{compiler}}/{{compiler_version}}"
       - szip/{{versions.szip}}
-      - !ifeq "{{versions.os_release}},7,zlib/{{versions.zlib}},"
       - libjpeg/{{versions.libjpeg}}
