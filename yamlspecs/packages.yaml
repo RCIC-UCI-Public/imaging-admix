@@ -39,4 +39,4 @@ manifest:
   - "{{bootstrap}}"
   - "{{build}}"
 sets:
-  - centos8
+  - "2022"
