@@ -1,5 +1,6 @@
 !include site.yaml
 ---
+admix: imaging-admix
 libpng: "1.6.37"
 libjpeg: "9d"
 freetype: "2.10.2"
