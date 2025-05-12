@@ -18,7 +18,7 @@ system:
   - libX11-devel
   - mesa-libGL-devel
   - zlib-devel
-  - !ifeq "{{site.os_release}},8,libtirpc-devel,glibc-headers"
+  - !ifeq "{{site.os_release}},7,glibc-headerslibtirpc-devel"
   - !ifeq "{{site.os_release}},8,{{system8}},"
 bootstrap:
   - libpng
