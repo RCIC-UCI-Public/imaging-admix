@@ -19,7 +19,7 @@ system:
   - mesa-libGL-devel
   - zlib-devel
   - !ifeq "{{site.os_release}},7,glibc-headerslibtirpc-devel"
-  - !ifeq "{{site.os_release}},8,{{system8}},"
+  - !ifeq "{{site.os_release}},7,,{{system8}}"
 bootstrap:
   - libpng
   - libpng-module
