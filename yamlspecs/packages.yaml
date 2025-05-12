@@ -21,22 +21,10 @@ system:
   - !ifeq "{{site.os_release}},7,glibc-headerslibtirpc-devel"
   - !ifeq "{{site.os_release}},7,,{{system8}}"
 bootstrap:
-  - libpng
-  - libpng-module
-  - libjpeg
-  - libjpeg-module
-  - freetype
-  - freetype-module
-  - szip
-  - szip-module
-  - hdf4
-  - hdf4-module
 build:
-  - ncl
-  - ncl-module
-  - phia
 manifest:
   - "{{bootstrap}}"
   - "{{build}}"
 sets:
+  - base
   - "2022"

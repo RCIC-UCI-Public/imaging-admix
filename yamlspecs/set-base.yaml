@@ -1,0 +1,18 @@
+!include packages.yaml
+---
+versions: versions.yaml
+bootstrap:
+  - libpng
+  - libpng-module
+  - libjpeg
+  - libjpeg-module
+  - freetype
+  - freetype-module
+  - szip
+  - szip-module
+  - hdf4
+  - hdf4-module
+build:
+  - ncl
+  - ncl-module
+  - phia
