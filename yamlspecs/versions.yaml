@@ -10,3 +10,15 @@ ncl: "6.6.2"
 curl: "7.81.0"
 phia: "0.2"
 phia_rel: "1"
+# NOTE reset the following to earlier versions that were for OS 8 base build
+compiler:
+  name: gcc
+  version: "8.4.0"
+R: "4.0.4"
+intel_tbb: "20190605"
+java: "1.8.0"
+hdf5: "1.10.5"
+gsl: "2.6"
+fftw: "3.3.8"
+netcdfc: "4.7.0"
+udunits: "2.2.26"
