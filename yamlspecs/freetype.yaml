@@ -7,3 +7,5 @@
   description: |
     FreeType {{version}} is a freely available software 
     library to render fonts. See https://www.freetype.org
+  build:
+    configure_args: --with-harfbuzz=no --with-brotli=no  --prefix={{root}}
