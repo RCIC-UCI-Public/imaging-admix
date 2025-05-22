@@ -1,7 +1,7 @@
 !include libpng.yaml
 !include rcic-module.yaml
 ---
-- package: libpng module 
+- package: libpng module
   category: LIBRARIES
   module:
     prepend_path:

@@ -1,7 +1,7 @@
 !include ants.yaml
 !include rcic-module.yaml
 ---
-- package: ants module 
+- package: ants module
   category: IMAGING
   module:
     prepend_path:

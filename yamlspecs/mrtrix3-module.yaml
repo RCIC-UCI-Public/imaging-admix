@@ -1,7 +1,7 @@
 !include mrtrix3.yaml
 !include rcic-module.yaml
 ---
-- package: mrtrix3 module 
+- package: mrtrix3 module
   category: IMAGING
   module:
     prepend_path:

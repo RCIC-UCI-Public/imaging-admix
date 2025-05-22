@@ -1,9 +1,9 @@
 !include common.yaml
 ---
 - package: szip
-  name: szip 
+  name: szip
   version: "{{versions.szip}}"
   vendor_source: https://support.hdfgroup.org/ftp/lib-external/{{name}}/{{version}}/src/{{name}}-{{version}}.{{extension}}
   description: |
-    Szip {{version}} is a stand-alone library that is configured as an optional
+    Szip is a stand-alone library. It is configured as an optional
     filter in HDF. See https://support.hdfgroup.org/doc_resource/SZIP

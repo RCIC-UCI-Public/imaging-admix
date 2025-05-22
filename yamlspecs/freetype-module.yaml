@@ -1,7 +1,7 @@
 !include freetype.yaml
 !include rcic-module.yaml
 ---
-- package: freetype module 
+- package: freetype module
   category: LIBRARIES
   module:
     setenv:

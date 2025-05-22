@@ -1,11 +1,9 @@
 !include common.yaml
 ---
 - package: libpng
-  name: libpng 
+  name: libpng
   version: "{{versions.libpng}}"
   vendor_source: https://download.sourceforge.net/libpng/{{name}}-{{version}}.{{extension}}
   description: |
-    Libpng {{version}} is the official PNG reference library.
-    It supports almost all PNG features, is extensible, and 
-    has been extensively tested for over 23 years. The home
-    site http://www.libpng.org/pub/png/libpng.html
+    Libpng is the official PNG reference library.
+    It supports almost all PNG features, is extensible.

@@ -1,7 +1,7 @@
 !include hdf4.yaml
 !include rcic-module.yaml
 ---
-- package: hdf4 module 
+- package: hdf4 module
   category: LIBRARIES
   module:
     prepend_path:

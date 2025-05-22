@@ -1,10 +1,10 @@
 !include common.yaml
 ---
 - package: libjpeg
-  name: libjpeg 
+  name: libjpeg
   version: "{{versions.libjpeg}}"
   vendor_source: http://www.ijg.org/files/jpegsrc.v{{version}}.{{extension}}
   description: |
-    Libjpeg {{version}} is a free library for JPEG image compression.
+    Libjpeg is a library for JPEG image compression.
     See http://ijg.org
   src_dir: jpeg-{{version}}

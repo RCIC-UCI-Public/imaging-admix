@@ -1,28 +1,25 @@
 !include common.yaml
 ---
 - package: ANTs
-  name: ants 
+  name: ants
   version: "{{versions.ants}}"
   compiler: "{{versions.compiler_sys.name}}"
   compiler_version: "{{versions.compiler_sys.version}}"
   vendor_source: https://github.com/ANTsX/ANTs/archive/v{{version}}.{{extension}}
   description: |
-    ANTs {{version}} extracts information from complex datasets that include imaging
-    (Word Cloud). Paired with ANTsR (answer), ANTs is useful for managing, interpreting
-    and visualizing multidimensional data. ANTs is popularly considered a state-of-the-art
-    medical image registration and segmentation toolkit
+    ANTs (Advanced Normalization Tools) is a software toolkit for biological and medical image analysis.
   src_dir: "{{package}}-{{version}}"
   build:
     cmake_args: -DCMAKE_INSTALL_PREFIX={{root}} -DBUILD_TESTING=OFF -DSuperBuild_ANTS_USE_GIT_PROTOCOL=off
     configure: >
       (mkdir builddir;
-      cd builddir; 
+      cd builddir;
       unset MAKEFLAGS;
       cmake {{build.cmake_args}} --trace-expand ../)
-    configure_args: 
-    base_modules: 
+    configure_args:
+    base_modules:
       - gcc/{{versions.ants_gcc}}
-    modules: 
+    modules:
       - cmake/{{versions.cmake}}
       - "{{build.base_modules}}"
     pkgmake: cd builddir; unset MAKEFLAGS; make -j 4

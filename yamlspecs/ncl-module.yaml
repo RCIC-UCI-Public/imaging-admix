@@ -1,7 +1,7 @@
 !include ncl.yaml
 !include rcic-module.yaml
 ---
-- package: ncl module 
+- package: ncl module
   category: TOOLS
   module:
     setenv:

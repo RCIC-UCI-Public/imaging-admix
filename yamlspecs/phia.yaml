@@ -9,7 +9,7 @@
   src_tarball: "{{name}}_{{version}}.{{extension}}"
   no_src_dir: true
   description: >
-    {{rpkgname}} version {{version}} for R version {{versions.R}}. 
+    {{rpkgname}} version {{version}} for R version {{versions.R}}.
   libpath: "{{pkg_defaults.app_path}}/R/{{versions.R}}/lib64/R/library"
   root: "{{libpath}}/{{rpkgname}}"
   build:
@@ -22,5 +22,5 @@
       R CMD INSTALL -l $(ROOT)/{{libpath}} {{src_tarball}}
   files:
     -  "{{root}}"
-  requires: 
+  requires:
      - R_{{versions.R}}

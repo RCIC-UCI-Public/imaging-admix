@@ -1,14 +1,15 @@
 !include common.yaml
 ---
 - package: NCL
-  name: ncl 
+  name: ncl
   version: "{{versions.ncl}}"
   vendor_source: https://github.com/NCAR/ncl/archive/{{version}}.{{extension}}
   description: |
-    NCL {{version}} is developed by the Computational and Information Systems Lab at
+    NCL is an interpreted language for scientific data analysis and visualization.
+    NCL is developed by the Computational and Information Systems Lab at
     the National Center for Atmospheric Research (NCAR). See http://www.ncl.ucar.edu
   configFile: config/Site.local
-  zlibopt: 
+  zlibopt:
   tirpc: !ifeq "{{versions.os_release}},7,,-ltirpc"
   hdflib: -L$$hdf4__PREFIX/lib {{tirpc}} -lmfhdf -ldf -L$$libjpeg__PREFIX/lib -ljpeg {{zlibopt}} -lz -L$$szip__PREFIX/lib -lsz
   netcdf4lib: -L$$hdf5__PREFIX/lib -lhdf5_hl -lhdf5 -L$$szip__PREFIX/lib -lsz

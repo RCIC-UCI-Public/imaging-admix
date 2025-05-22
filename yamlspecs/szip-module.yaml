@@ -1,7 +1,7 @@
 !include szip.yaml
 !include rcic-module.yaml
 ---
-- package: szip module 
+- package: szip module
   category: LIBRARIES
   module:
     prepend_path:

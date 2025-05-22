@@ -1,7 +1,7 @@
 !include afni-compile.yaml
 !include rcic-module.yaml
 ---
-- package: afni module 
+- package: afni module
   category: IMAGING
   module:
     setenv:

@@ -9,9 +9,8 @@
   release: 3
   vendor_source: https://github.com/afni/afni/archive/refs/tags/{{package}}_{{version}}.{{extension}}
   description: |
-    AFNI (Analysis of Functional NeuroImages) {{version}}  is a leading software
-    suite of C, Python, R programs and shell scripts primarily developed for
-    the analysis and display of anatomical and functional MRI (FMRI) data
+    AFNI (Analysis of Functional NeuroImages). It is software suite
+    for the analysis and display of anatomical and functional MRI (FMRI) data.
   build:
     configure: echo
     configure_args:

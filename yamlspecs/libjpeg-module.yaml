@@ -1,7 +1,7 @@
 !include libjpeg.yaml
 !include rcic-module.yaml
 ---
-- package: libjpeg module 
+- package: libjpeg module
   category: LIBRARIES
   module:
     prepend_path:
