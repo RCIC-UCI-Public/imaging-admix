@@ -20,6 +20,7 @@ system:
   - zlib-devel
   - !ifeq "{{site.os_release}},7,glibc-headers,libtirpc-devel"
   - !ifeq "{{site.os_release}},7,,{{system8}}"
+  - gsl-devel
 bootstrap:
 build:
 manifest:
