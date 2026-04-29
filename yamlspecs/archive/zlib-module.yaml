@@ -1,9 +1,0 @@
-!include zlib.yaml
-!include rcic-module.yaml
----
-- package: zlib module 
-  category: LIBRARIES
-  module:
-    prepend_path:
-      - *Prepend_path
-      - *Flagspath
