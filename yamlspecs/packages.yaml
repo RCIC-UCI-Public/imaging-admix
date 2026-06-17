@@ -1,12 +1,6 @@
-site: !include site.yaml
-system8:
-  - libXp-devel
-  - motif-devel
-  - xorg-x11-fonts-misc
-  - xorg-x11-server-Xvfb
-  - netpbm-progs
-  - ed
-  - libpng15
+---
+# EPEL provides libXp-devel and motif-devel on Rocky 10
+enablerepo: "epel"
 system:
   - autoconf
   - cairo-devel
@@ -18,8 +12,14 @@ system:
   - libX11-devel
   - mesa-libGL-devel
   - zlib-devel
-  - !ifeq "{{site.os_release}},7,glibc-headers,libtirpc-devel"
-  - !ifeq "{{site.os_release}},7,,{{system8}}"
+  - libtirpc-devel
+  - libXp-devel
+  - motif-devel
+  - xorg-x11-fonts-misc
+  - !OScmp ">=,10,xorg-x11-server-Xwayland,xorg-x11-server-Xvfb"
+  - netpbm-progs
+  - ed
+  - !OScmp "<,10,libpng15,"
   - gsl-devel
 bootstrap:
 build:
